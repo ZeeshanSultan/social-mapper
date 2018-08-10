@@ -1,0 +1,147 @@
+<meta charset="utf-8" />
+<style>
+    #employees {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    #employees td, #employees th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    #employees td {
+        height: 100px;
+    }
+
+    #employees tbody:nth-child(even){
+        background-color: #f2f2f2;
+    }
+    
+    #employees th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #12db00;
+        color: white;
+    }
+
+
+    #employees .hasTooltipleft span {
+        visibility: hidden;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+
+        /* Position the tooltip */
+        position: absolute;
+        left:15%;
+        z-index: 1;
+
+    }
+
+    #employees .hasTooltipcenterleft span {
+        visibility: hidden;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+
+        /* Position the tooltip */
+        position: absolute;
+        left:20%;
+        z-index: 1;
+
+    }
+
+    #employees .hasTooltipcenterright span {
+        visibility: hidden;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+
+        /* Position the tooltip */
+        position: absolute;
+        left:25%;
+        z-index: 1;
+
+    }
+
+    #employees .hasTooltipright span {
+        visibility: hidden;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+
+        /* Position the tooltip */
+        position: absolute;
+        left:30%;
+        z-index: 1;
+
+    }
+
+    #employees .hasTooltipfarright span {
+        visibility: hidden;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+
+        /* Position the tooltip */
+        position: absolute;
+        left:35%;
+        z-index: 1;
+
+    }
+
+    #employees .hasTooltipleft:hover span {
+        visibility: visible;
+    }
+
+    #employees .hasTooltipcenterleft:hover span {
+        visibility: visible;
+    }
+
+    #employees .hasTooltipcenterright:hover span {
+        visibility: visible;
+    }
+
+    #employees .hasTooltipright:hover span {
+        visibility: visible;
+    }
+
+    #employees .hasTooltipfarright:hover span {
+        visibility: visible;
+    }
+
+    #employees tbody:hover {
+        background-color: #aaa;
+    }
+}
+
+</style>
+<center><table id="employees">
+            <tr>
+                <th rowspan="2">Photo</th>
+                <th rowspan="2">Name</th>
+                <th>LinkedIn</th>
+                <th>Facebook</th>
+                <th>Twitter</th>
+                <th>Instagram</th>
+            </tr>
+            <tr>
+                <th>GooglePlus</th>
+                <th>VKontakte</th>
+                <th>Weibo</th>
+                <th>Douban</th>
+            </tr>
+             <tbody><tr><td class="hasTooltipleft" rowspan="2"><img src="C:\Users\Euros\Desktop\social_mapper\images/mark zuckerberg.jpg" width=auto height=auto style="max-width:200px; max-height:200px;"><span>C:\Users\Euros\Desktop\social_mapper\images/mark zuckerberg.jpg</span></td><td rowspan="2">mark zuckerberg</td><td class="hasTooltipcenterleft"><a href=""><img src="" onerror="this.style.display='none'" width=auto height=auto style="max-width:100px; max-height:100px;"><span>LinkedIn:<br></span></a></td><td class="hasTooltipcenterright"><a href=""><img src="" onerror="this.style.display='none'" width=auto height=auto style="max-width:100px; max-height:100px;"><span>Facebook:<br></span></a></td><td class="hasTooltipright"><a href=""><img src="" onerror="this.style.display='none'" width=auto height=auto style="max-width:100px; max-height:100px;"><span>Twitter:<br></span></a></td><td class="hasTooltipfarright"><a href=""><img src="" onerror="this.style.display='none'" width=auto height=auto style="max-width:100px; max-height:100px;"><span>Instagram:<br></span></a></td></tr><tr><td class="hasTooltipcenterleft"><a href=""><img src="" onerror="this.style.display='none'" width=auto height=auto style="max-width:100px; max-height:100px;"><span>GooglePlus:<br></span></a></td><td class="hasTooltipcenterright"><a href=""><img src="" onerror="this.style.display='none'" width=auto height=auto style="max-width:100px; max-height:100px;"><span>VKontakte:<br></span></a></td><td class="hasTooltipright"><a href=""><img src="" onerror="this.style.display='none'" width=auto height=auto style="max-width:100px; max-height:100px;"><span>Weibo:<br></span></a></td><td class="hasTooltipfarright"><a href=""><img src="" onerror="this.style.display='none'" width=auto height=auto style="max-width:100px; max-height:100px;"><span>Douban:<br></span></a></td></tr></tbody></table></center>

@@ -149,7 +149,7 @@ def fill_facebook(peoplelist):
                     headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/602.2.14 (KHTML, like Gecko) Version/10.0.1 Safari/602.2.14'}
                     # Get target image using requests, providing selenium cookies, and fake user agent
                     response = requests.get(image_link, cookies=cookies,headers=headers,stream=True)
-                    with open('potential_target_image.jpg', 'wb') as out_file:
+                    with open('potential_target_image.jpg', 'w') as out_file:
                         #facebook images are sent content encoded so need to decode them
                         response.raw.decode_content = True
                         shutil.copyfileobj(response.raw, out_file)
@@ -895,19 +895,19 @@ peoplelist = []
 # Fill people list from document with just name + image link
 if args.format == "csv":
     exit=False
-    file = open(args.input, 'rb')
+    file = open(args.input, 'r')
     data = file.read()
     file.close()
     try:
         os.remove('temp.csv')
     except OSError:
         pass
-    tempcsv = open('temp.csv', 'wb')
+    tempcsv = open('temp.csv', 'w')
     tempcsv.write(data.replace('\x00',''))
     tempcsv.close()
     if not os.path.exists('temp-targets'):
         os.makedirs('temp-targets')
-    filereader = csv.reader(open('temp.csv', 'rb'), delimiter=",")
+    filereader = csv.reader(open('temp.csv', 'r'), delimiter=",")
     for full_name, person_image in filereader:
         full_name = encoding.smart_str(full_name, encoding='ascii', errors='ignore')
         person_image = encoding.smart_str(person_image, encoding='ascii', errors='ignore')
@@ -1154,48 +1154,48 @@ phishingoutputfilename = "SM-Results/" + args.input.replace("\"","").replace("/"
 if args.format == "imagefolder":
     outputfilename = "SM-Results/results-social-mapper.csv"
     phishingoutputfilename = "SM-Results/results"
-filewriter = open(outputfilename.format(outputfilename), 'wb')
+filewriter = open(outputfilename.format(outputfilename), 'w')
 titlestring = "Full Name,"
 if args.a == True or args.li == True or args.format == "socialmapper":
         titlestring = titlestring + "LinkedIn,"
         if args.email is not None:
             phishingoutputfilenamelinkedin=phishingoutputfilename+"-linkedin.csv"
-            filewriterlinkedin = open(phishingoutputfilenamelinkedin.format(phishingoutputfilenamelinkedin), 'wb')
+            filewriterlinkedin = open(phishingoutputfilenamelinkedin.format(phishingoutputfilenamelinkedin), 'w')
 if args.a == True or args.fb == True or args.format == "socialmapper":
         titlestring = titlestring + "Facebook,"
         if args.email is not None:
             phishingoutputfilenamefacebook=phishingoutputfilename+"-facebook.csv"
-            filewriterfacebook = open(phishingoutputfilenamefacebook.format(phishingoutputfilenamefacebook), 'wb')
+            filewriterfacebook = open(phishingoutputfilenamefacebook.format(phishingoutputfilenamefacebook), 'w')
 if args.a == True or args.tw == True or args.format == "socialmapper":
         titlestring = titlestring + "Twitter,"
         if args.email is not None:
             phishingoutputfilenametwitter=phishingoutputfilename+"-twitter.csv"
-            filewritertwitter = open(phishingoutputfilenametwitter.format(phishingoutputfilenametwitter), 'wb')
+            filewritertwitter = open(phishingoutputfilenametwitter.format(phishingoutputfilenametwitter), 'w')
 if args.a == True or args.ig == True or args.format == "socialmapper":
         titlestring = titlestring + "Instagram,"
         if args.email is not None:
             phishingoutputfilenameinstagram=phishingoutputfilename+"-instagram.csv"
-            filewriterinstagram = open(phishingoutputfilenameinstagram.format(phishingoutputfilenameinstagram), 'wb')
+            filewriterinstagram = open(phishingoutputfilenameinstagram.format(phishingoutputfilenameinstagram), 'w')
 if args.a == True or args.gp == True or args.format == "socialmapper":
         titlestring = titlestring + "Google Plus,"
         if args.email is not None:
             phishingoutputfilenamegoogleplus=phishingoutputfilename+"-googleplus.csv"
-            filewritergoogleplus = open(phishingoutputfilenamegoogleplus.format(phishingoutputfilenamegoogleplus), 'wb')
+            filewritergoogleplus = open(phishingoutputfilenamegoogleplus.format(phishingoutputfilenamegoogleplus), 'w')
 if args.a == True or args.vk == True or args.format == "socialmapper":
         titlestring = titlestring + "VKontakte,"
         if args.email is not None:
             phishingoutputfilenamevkontakte=phishingoutputfilename+"-vkontakte.csv"
-            filewritervkontakte = open(phishingoutputfilenamevkontakte.format(phishingoutputfilenamevkontakte), 'wb')
+            filewritervkontakte = open(phishingoutputfilenamevkontakte.format(phishingoutputfilenamevkontakte), 'w')
 if args.a == True or args.wb == True or args.format == "socialmapper":
         titlestring = titlestring + "Weibo,"
         if args.email is not None:
             phishingoutputfilenameweibo=phishingoutputfilename+"-weibo.csv"
-            filewriterweibo = open(phishingoutputfilenameweibo.format(phishingoutputfilenameweibo), 'wb')
+            filewriterweibo = open(phishingoutputfilenameweibo.format(phishingoutputfilenameweibo), 'w')
 if args.a == True or args.db == True or args.format == "socialmapper":
         titlestring = titlestring + "Douban,"
         if args.email is not None:
             phishingoutputfilenamedouban=phishingoutputfilename+"-douban.csv"
-            filewriterdouban = open(phishingoutputfilenamedouban.format(phishingoutputfilenamedouban), 'wb')
+            filewriterdouban = open(phishingoutputfilenamedouban.format(phishingoutputfilenamedouban), 'w')
 titlestring = titlestring[:-1]
 #filewriter.write("Full Name,LinkedIn,Facebook,Twitter,Instagram,Google Plus,Vkontakte,Weibo,Douban\n")
 filewriter.write(titlestring)
@@ -1338,7 +1338,7 @@ except:
 htmloutputfilename = "SM-Results/" + args.input.replace("\"","").replace("/","-") + "-social-mapper.html"
 if args.format == "imagefolder":
     htmloutputfilename = "SM-Results/results-social-mapper.html"
-filewriter = open(htmloutputfilename.format(htmloutputfilename), 'wb')
+filewriter = open(htmloutputfilename.format(htmloutputfilename), 'w')
 #background-color: #4CAF50;
 css = """<meta charset="utf-8" />
 <style>
